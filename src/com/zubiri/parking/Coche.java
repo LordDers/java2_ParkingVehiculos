@@ -51,7 +51,6 @@ public class Coche extends Vehiculo {
 
 	//Otros métodos
 	double calcConsumo(int numKm, double precioGasoil) {
-    	
     	double consumoTotal = 0;
     	
     	
