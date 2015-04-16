@@ -61,8 +61,17 @@ public abstract class Vehiculo {
 	
 	//Otros métodos
 	public String formatted() {
-		String formatted = null;
-		
+		//String formatted = null;
+		String formatted =
+				"Marca: " + this.marca + "\n" +
+				"Número de ruedas: " + this.numRuedas + "\n";
+				if (motor) {
+					formatted+= "Tiene motor\n";
+				}
+				else {
+					formatted+= "NO tiene motor\n";
+				}
+				
 		return formatted;
 	}
 }
