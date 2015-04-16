@@ -53,5 +53,13 @@ public final class Bicicleta extends Vehiculo {
 	}
 	
 	//Otros métodos
-	
+	@Override
+    public String formatted() {
+		String formatted = 
+		super.formatted() + "\n" +
+		"Tipo bicicleta: " + this.tipo + "\n" + 
+		"Número de pinyones: " + this.numPinyones + "\n";
+				
+		return formatted;
+	}
 }
