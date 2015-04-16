@@ -54,7 +54,7 @@ public final class Bicicleta extends Vehiculo {
 	
 	//Otros métodos
 	@Override
-    public String formatted() {
+	public String formatted() {
 		String formatted = 
 		super.formatted() + "\n" +
 		"Tipo bicicleta: " + this.tipo + "\n" + 

@@ -55,7 +55,7 @@ public class Coche extends Vehiculo {
     	
     	
 		return consumoTotal;
-    }
+	}
     
     @Override
     public String formatted() {
