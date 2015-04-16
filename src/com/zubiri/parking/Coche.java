@@ -59,7 +59,7 @@ public class Coche extends Vehiculo {
     
 	@Override
 	public String formatted() {
-    	String formatted = 
+		String formatted = 
 		super.formatted() + "\n";
 		if (automatico) {
 			formatted += "Es automático\n";
