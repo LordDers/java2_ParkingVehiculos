@@ -57,8 +57,8 @@ public class Coche extends Vehiculo {
 		return consumoTotal;
 	}
     
-    @Override
-    public String formatted() {
+	@Override
+	public String formatted() {
     	String formatted = 
 		super.formatted() + "\n";
 		if (automatico) {
