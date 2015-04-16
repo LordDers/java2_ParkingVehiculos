@@ -58,4 +58,16 @@ public class Coche extends Vehiculo {
     	return consumoTotal;
     }
     
+    public String formatted() {
+		String formatted = 
+		super.formatted() + "\n";
+		if (automatico) {
+			formatted += "Es automático\n";
+		} else {
+			formatted += "NO es automático\n";
+		}
+		formatted += "Consumo en 100km: " + this.consumo100km + "\n";
+				
+		return formatted;
+	}
 }
