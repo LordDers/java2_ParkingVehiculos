@@ -63,14 +63,14 @@ public abstract class Vehiculo {
 	public String formatted() {
 		//String formatted = null;
 		String formatted =
-				"Marca: " + this.marca + "\n" +
-				"Número de ruedas: " + this.numRuedas + "\n";
-				if (motor) {
-					formatted += "Tiene motor\n";
-				}
-				else {
-					formatted += "NO tiene motor\n";
-				}
+			"Marca: " + this.marca + "\n" +
+			"Número de ruedas: " + this.numRuedas + "\n";
+			if (motor) {
+				formatted += "Tiene motor\n";
+			}
+			else {
+				formatted += "NO tiene motor\n";
+			}
 				
 		return formatted;
 	}

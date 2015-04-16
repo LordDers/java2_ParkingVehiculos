@@ -41,15 +41,15 @@ public final class Bicicleta extends Vehiculo {
 	}
 	
 	public void setTipo(String tipo) throws Exception {
-			switch(tipo) {
-				case "montanya":
-				case "paseo":
-				case "carreras":
-					this.tipo = tipo;
-					break;
-				default:
-					throw new Exception("Tipo de bicicleta permitido: montanya, paseo y carreras");
-			}
+		switch(tipo) {
+			case "montanya":
+			case "paseo":
+			case "carreras":
+				this.tipo = tipo;
+				break;
+			default:
+				throw new Exception("Tipo de bicicleta permitido: montanya, paseo y carreras");
+		}
 	}
 	
 	//Otros métodos
