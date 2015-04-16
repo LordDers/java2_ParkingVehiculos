@@ -51,10 +51,10 @@ public class Coche extends Vehiculo {
 
 	//Otros métodos
 	double calcConsumo(int numKm, double precioGasoil) {
-    	double consumoTotal = 0;
+		double consumoTotal = 0;
     	
     	
-    	return consumoTotal;
+		return consumoTotal;
     }
     
     @Override
