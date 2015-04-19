@@ -1,7 +1,6 @@
 package com.zubiri.parking;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class ParkingVehiculos {
 	
@@ -15,48 +14,64 @@ public class ParkingVehiculos {
 		ParkingVehiculos.vehiculos = vehiculos;
 	}
 
-	public static ArrayList<Vehiculo> introducirVehiculos(Scanner sc){
-		System.out.println("¿Cuántos vehículos desea introducir?");
-		int numVehiculo=sc.nextInt();
-		for (int i = 0; i < numVehiculo; i++) {
-			System.out.println("¿Qué quieres introducir? (coche/vehiculo)");
-			switch (sc.next()) {
-			case "coche":
-				vehiculos.add(new Coche(sc));
-				break;
-
-			case "bicicleta":
-				vehiculos.add(new Bicicleta(sc));
-				break;
-			}
-		}
-		
-		return vehiculos;
+	// Añadir
+	public static void anyadirVehiculo(Vehiculo vehiculo){
+		vehiculos.add(vehiculo);
 	}
 	
-	public void anyadirCoche(Coche coche) {
+	public static void anyadirCoche(Coche coche){
 		vehiculos.add(coche);
 	}
 	
-	public void anyadirBicicleta(Bicicleta bicicleta) {
+	public static void anyadirBicicleta(Bicicleta bicicleta){
 		vehiculos.add(bicicleta);
 	}
 	
-	public static void borrarVehiculo(String vehiculo){
-		vehiculos.remove(vehiculo);
-	}
-	
-	public static Vehiculo buscarArtista(String nombre){
-		Artista artista = null;
-		if (artistas == null) {
-			System.out.println("No se han cargado artistas en la lista....");
-		}else {
-			for (int i = 0; i < artistas.size(); i++) {
-				if (artistas.get(i).getNombre().equalsIgnoreCase(nombre)) {
-					artista = artistas.get(i);
-				}
+	// Buscar
+	public static void buscarVehiculo(String matricula) {
+		int i;
+		
+		for(i =0; i<vehiculos.size(); i++) {
+			if (vehiculos.get(i).getMatricula().equalsIgnoreCase(matricula)) {
+				System.out.println(vehiculos.get(i).formatted());
+				break;
 			}
 		}
-		return artista;
+		if (i == vehiculos.size()) {
+			System.out.println("No se ha encontrado la matricula");
+		}
+	}
+	
+	// Modificar
+	public void modificarVehiculo(String matricula) {
+		
+	}
+	
+	// Borrar
+	public static void borrarVehiculo(String matricula){
+		vehiculos.remove(matricula);
+	}
+	
+	// Mostrar
+	public static void mostrarParkingVehiculos() {
+		if (getVehiculos().size() == 0) {
+			System.out.println("No se han cargado los vehículos");
+		}
+		
+		for (int i=0; i<getVehiculos().size(); i++) {
+			Vehiculo vehi = getVehiculos().get(i);
+			vehi.mostrarVehiculo();
+			System.out.println();
+		}
+	}
+	
+	public String formattedParkingVehiculos() {
+		String parkingStr = null;
+		
+		for (int i = 0; i < vehiculos.size(); i++) {
+			parkingStr += vehiculos.get(i).formatted() + "\n";
+		}
+
+		return parkingStr;
 	}
 }

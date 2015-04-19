@@ -8,8 +8,8 @@ public final class Bicicleta extends Vehiculo {
 	String tipo = null; //Donde los tipos posibles son "montanya", "paseo" o "carreras"
 
 	//Constructores
-	public Bicicleta(int numRuedas, boolean motor, String marca, int numPinyones, String tipo) {
-		super(numRuedas, motor, marca);
+	public Bicicleta(int numRuedas, boolean motor, String marca, String matricula, int numPinyones, String tipo) {
+		super(numRuedas, motor, marca, matricula);
 		this.numPinyones = numPinyones;
 		this.tipo = tipo;
 	}
@@ -61,5 +61,12 @@ public final class Bicicleta extends Vehiculo {
 		"Número de pinyones: " + this.numPinyones + "\n";
 				
 		return formatted;
+	}
+	
+	@Override
+	public void mostrarVehiculo() {
+		super.mostrarVehiculo();
+		System.out.println("Tipo bicicleta: " + this.tipo);
+		System.out.println("Número de pinyones: " + this.numPinyones);
 	}
 }
