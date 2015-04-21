@@ -94,19 +94,6 @@ public class ParkingVehiculos {
 	}
 	
 	// Modificar
-	/*public static void modificarVehiculo(String matricula, String nuevamatricula) {
-		for(int i=0; i<vehiculos.size(); i++) {
-			if (vehiculos.get(i).getMatricula().equalsIgnoreCase(matricula)) {
-				int ruedas = vehiculos.get(i).getNumRuedas();
-				boolean motor = vehiculos.get(i).isMotor();
-				String marca = vehiculos.get(i).getMarca();
-				boolean automatico = true;
-				int consumo = 1;
-				Coche coche = new Coche(ruedas, motor, marca, nuevamatricula, automatico, consumo);
-				vehiculos.set(i, coche);
-			}
-		}
-	}*/
 	public static void modificarVehiculo(String matricula) {
 		for(int i=0; i<vehiculos.size(); i++) {
 			if (vehiculos.get(i).getMatricula().equalsIgnoreCase(matricula)) {
