@@ -16,7 +16,7 @@ public class Coche extends Vehiculo {
 	
 	public Coche(Scanner sc) {
 		super(sc);
-		System.out.println("Coche");
+		//System.out.println("Coche");
 		System.out.print("¿Es automático? (S/N) ");
 		switch(sc.next()) {
 			case "S":

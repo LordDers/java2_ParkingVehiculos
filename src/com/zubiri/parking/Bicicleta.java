@@ -16,7 +16,7 @@ public final class Bicicleta extends Vehiculo {
 	
 	public Bicicleta(Scanner sc) {
 		super(sc);
-		System.out.println("Bicicleta");
+		//System.out.println("Bicicleta");
 		System.out.print("Número de pinyones: ");
 		this.setNumPinyones(sc.nextInt());
 		System.out.print("Tipo (montanya, paseo, carreras): ");

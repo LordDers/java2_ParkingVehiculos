@@ -1,10 +1,61 @@
 package com.zubiri.parking;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class ParkingVehiculos {
 	
 	private static ArrayList<Vehiculo> vehiculos = new ArrayList<Vehiculo>();
+	
+	public ParkingVehiculos() {
+		
+	}
+	
+	public ParkingVehiculos(Scanner sc) throws Exception {
+		
+		int seleccion = -1;
+		
+		do {
+			try {
+				System.out.println("Cuantos vehiculos quieres insertar? ");
+				seleccion = sc.nextInt();
+			} catch (InputMismatchException exception) {
+				System.out.println("Introduce un número");
+				sc.nextLine();
+			}
+		} while (seleccion < 0);
+		
+		for (int i = 0; i < seleccion; i++) {
+			int seleccionvehiculo = 0;
+			do {
+				try {
+					System.out.println("Que quieres insertar?");
+					System.out.println("BICICLETA:--------1");
+					System.out.println("COCHE:----------2");
+
+					seleccionvehiculo = sc.nextInt();
+				
+					switch(seleccionvehiculo) {
+						case 1:
+							Bicicleta bicicleta = new Bicicleta(sc);
+							vehiculos.add(bicicleta);
+							break;
+						case 2:
+							Coche coche = new Coche(sc);
+							vehiculos.add(coche);
+							break;
+						default:
+							System.out.println("No ha insertado la opcion correcta.");
+							break;			
+					}
+				} catch (InputMismatchException e){
+					System.out.println("Eso no es numero");
+					sc.nextLine();
+				}	
+			} while (seleccionvehiculo == 0);
+		}		
+	}
 
 	public static ArrayList<Vehiculo> getVehiculos() {
 		return vehiculos;
@@ -43,13 +94,36 @@ public class ParkingVehiculos {
 	}
 	
 	// Modificar
-	public void modificarVehiculo(String matricula) {
-		
+	/*public static void modificarVehiculo(String matricula, String nuevamatricula) {
+		for(int i=0; i<vehiculos.size(); i++) {
+			if (vehiculos.get(i).getMatricula().equalsIgnoreCase(matricula)) {
+				int ruedas = vehiculos.get(i).getNumRuedas();
+				boolean motor = vehiculos.get(i).isMotor();
+				String marca = vehiculos.get(i).getMarca();
+				boolean automatico = true;
+				int consumo = 1;
+				Coche coche = new Coche(ruedas, motor, marca, nuevamatricula, automatico, consumo);
+				vehiculos.set(i, coche);
+			}
+		}
+	}*/
+	public static void modificarVehiculo(String matricula) {
+		for(int i=0; i<vehiculos.size(); i++) {
+			if (vehiculos.get(i).getMatricula().equalsIgnoreCase(matricula)) {
+				Scanner sc = new Scanner(System.in);
+				Coche coche = new Coche(sc);
+				vehiculos.set(i, coche);
+			}
+		}
 	}
 	
-	// Borrar
+	// Borrar	
 	public static void borrarVehiculo(String matricula){
-		vehiculos.remove(matricula);
+		for (int b = 0; b < vehiculos.size(); b++) {
+			if (vehiculos.get(b).getMatricula().equalsIgnoreCase(matricula)) {
+				vehiculos.remove(b);
+			}
+		}
 	}
 	
 	// Mostrar
@@ -66,10 +140,10 @@ public class ParkingVehiculos {
 	}
 	
 	public String formattedParkingVehiculos() {
-		String parkingStr = null;
+		String parkingStr = "";
 		
 		for (int i = 0; i < vehiculos.size(); i++) {
-			parkingStr += vehiculos.get(i).formatted() + "\n";
+			parkingStr += vehiculos.get(i).formatted();
 		}
 
 		return parkingStr;

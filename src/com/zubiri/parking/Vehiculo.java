@@ -79,10 +79,10 @@ public abstract class Vehiculo {
 			"Marca: " + this.marca + "\n" +
 			"Número de ruedas: " + this.numRuedas + "\n";
 			if (motor) {
-				formatted += "Tiene motor\n";
+				formatted += "Tiene motor";
 			}
 			else {
-				formatted += "NO tiene motor\n";
+				formatted += "NO tiene motor";
 			}
 				
 		return formatted;
