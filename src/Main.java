@@ -1,4 +1,5 @@
 import com.zubiri.parking.ParkingVehiculos;
+import com.zubiri.parking.Coche;
 import java.util.Scanner;
 
 public class Main {
@@ -43,10 +44,11 @@ public class Main {
 					break;
 				case 6: // Leer vehículos
 					pv.leerVehiculos();
-					pv.mostrarParkingVehiculos();
+					ParkingVehiculos.mostrarParkingVehiculos();
 					break;
 				case 7: // Añadir vehículos al fichero
-					pv.anyadirVehiculosFichero();
+					Coche coche = new Coche(sc);
+					pv.anyadirVehiculosFichero(coche);
 					break;
 				case 8: //Salimos
 					break;
