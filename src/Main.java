@@ -16,7 +16,9 @@ public class Main {
 			System.out.println("Buscar vehiculo----------------------------------3");
 			System.out.println("Borrar vehiculo----------------------------------4");
 			System.out.println("Modificar vehiculo-------------------------------5");
-			System.out.println("SALIR DEL PROGRAMA-------------------------------6");
+			System.out.println("Leer vehiculos-----------------------------------6");
+			System.out.println("Añadir vehiculos fichero-------------------------7");
+			System.out.println("SALIR DEL PROGRAMA-------------------------------8");
 			   
 			seleccion = sc.nextInt();
 			switch (seleccion) {
@@ -39,7 +41,14 @@ public class Main {
 					System.out.print("Introduce la matricula del coche a modificar: ");
 					ParkingVehiculos.modificarVehiculo(sc.next());
 					break;
-				case 6: //Salimos
+				case 6: // Leer vehículos
+					pv.leerVehiculos();
+					pv.mostrarParkingVehiculos();
+					break;
+				case 7: // Añadir vehículos al fichero
+					pv.anyadirVehiculosFichero();
+					break;
+				case 8: //Salimos
 					break;
 				default:
 					System.out.println("No ha insertado la opción correcta");

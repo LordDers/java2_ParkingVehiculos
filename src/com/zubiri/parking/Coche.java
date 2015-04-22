@@ -8,6 +8,10 @@ public class Coche extends Vehiculo {
 	int consumo100km = 0;
 	
 	//Constructores
+	public Coche() {
+		
+	}
+	
 	public Coche(int numRuedas, boolean motor, String marca, String matricula, boolean automatico, int consumo100km) {
 		super(numRuedas, motor, marca, matricula);
 		this.automatico = automatico;
@@ -80,6 +84,6 @@ public class Coche extends Vehiculo {
 		} else {
 			System.out.println("NO es automático");
 		}
-		System.out.println("Consumo en 100km: " + this.consumo100km);
+		System.out.println("Consumo en 100km: " + this.consumo100km + "\n");
 	}
 }

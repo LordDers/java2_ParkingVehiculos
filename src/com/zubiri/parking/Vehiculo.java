@@ -10,6 +10,10 @@ public abstract class Vehiculo {
 	String matricula = null;
 
 	//Constructores
+	public Vehiculo() {
+		
+	}
+	
 	public Vehiculo(int numRuedas, boolean motor, String marca, String matricula) {
 		this.numRuedas = numRuedas;
 		this.motor = motor;
