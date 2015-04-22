@@ -1,5 +1,4 @@
-package com.zubiri.parking;
-
+import com.zubiri.parking.ParkingVehiculos;
 import java.util.Scanner;
 
 public class Main {
