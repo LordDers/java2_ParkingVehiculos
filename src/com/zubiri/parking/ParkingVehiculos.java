@@ -182,14 +182,22 @@ public class ParkingVehiculos {
 		}
 	}
 	
-	public final void anyadirVehiculosFichero(Vehiculo vehiculo) throws IOException {		
+	public final void anyadirVehiculosFichero(Coche vehiculo) throws IOException {		
 		File TextFile = new File("/home/zubiri/ProyectosJava/java2_ParkingVehiculos/ficheros/vehiculos.txt"); 
 		FileWriter TextOut = new FileWriter(TextFile, true);
 		TextOut.write(vehiculo.getNumRuedas());
-		TextOut.write(vehiculo.isMotor());
-		TextOut.write(vehiculo.getNumRuedas());
-		TextOut.write(vehiculo.getNumRuedas());
-		TextOut.write(vehiculo.getNumRuedas());
+		if (vehiculo.isMotor()) {
+			TextOut.write("true");
+		} else {
+			TextOut.write("false");
+		}
+		TextOut.write(vehiculo.getMarca());
+		TextOut.write(vehiculo.getMatricula());
+		if (vehiculo.isAutomatico()) {
+			TextOut.write("true");
+		} else {
+			TextOut.write("false");
+		}
 		TextOut.write(vehiculo.getNumRuedas());
 		TextOut.close();
 	}
