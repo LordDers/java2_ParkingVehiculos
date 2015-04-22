@@ -51,10 +51,11 @@ public class Main {
 					pv.anyadirVehiculosFichero(coche);
 					break;
 				case 8: //Salimos
+					System.out.println("Has decidido salir");
 					break;
 				default:
 					System.out.println("No ha insertado la opción correcta");
 			}
-		} while (seleccion != 0);
+		} while (seleccion != 8);
 	}
 }
