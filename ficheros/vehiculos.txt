@@ -1,2 +1,1 @@
-Usando Buffered
-aa
+4, true, "Reanult", "0000AAA", true, 50

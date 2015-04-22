@@ -2,11 +2,9 @@ package com.zubiri.parking;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -147,8 +145,9 @@ public class ParkingVehiculos {
 		// Leer "clientes.txt"
 		try {
 
-			File archivo = new File("/home/zubiri/ProyectosJava/java2_ParkingVehiculos/ficheros/vehiculos.txt");
-			BufferedReader br2 = new BufferedReader(new FileReader(archivo));
+			/*File archivo = new File("/home/zubiri/ProyectosJava/java2_ParkingVehiculos/ficheros/vehiculos.txt");
+			BufferedReader br2 = new BufferedReader(new FileReader(archivo));*/
+			BufferedReader br2 = new BufferedReader(new FileReader("ficheros/vehiculos.txt"));
 
 			String linea2 = br2.readLine();
 
