@@ -1,7 +1,7 @@
 package com.zubiri.parking;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -182,47 +182,10 @@ public class ParkingVehiculos {
 		}
 	}
 	
-	public final void anyadirVehiculosFichero() {
-		
-		/*try
-		{
-			// Creamos el fichero "prueba.text"
-			FileWriter fw=new FileWriter("/home/zubiri/ProyectosJava/java2_ParkingVehiculos/ficheros/vehiculos.txt");
-
-			//Escribimos en el fichero
-			fw.write("Texto de prueba \n");
-
-			//Cerramos el stream
-			fw.close();
-            
-		} catch(Exception e) {
-			e.printStackTrace();
-		}*/
-		
-		try
-		// Como parámetro de BufferedWriter insertaremos un objeto FileWriter, el cuál tendrá como parámetro el nombre del fichero a escribir
-		(BufferedWriter bw = new BufferedWriter(new FileWriter("/home/zubiri/ProyectosJava/java2_ParkingVehiculos/ficheros/vehiculos.txt"));
-		// Como parámetro de BufferedReader insertaremos un objeto FileWriter, el cuál tendrá como parámetro el nombre del fichero a leer
-		BufferedReader br = new BufferedReader(new FileReader("/home/zubiri/ProyectosJava/java2_ParkingVehiculos/ficheros/vehiculos.txt"));)
-		{
-			//Escribimos en el fichero mediante el método "write"
-			bw.write("Usando Buffered");
-			bw.newLine();
-			bw.write("aa");
-			//Guardamos los cambios del fichero mediante el método "flush"
-			bw.flush();
-
-			//Leemos el fichero y lo mostramos por pantalla mediante el método "readLine" de la clase "BufferedReader"
-			String linea = br.readLine();
-			while(linea != null)
-			{
-				System.out.println(linea);
-				linea = br.readLine();
-			}
-		// En caso de haber algún error, saltará el mensaje
-		}catch(IOException e)
-		{
-			System.out.println("Error E/S: "+e);
-		}
+	public final void anyadirVehiculosFichero() throws IOException {		
+		File TextFile = new File("/home/zubiri/ProyectosJava/java2_ParkingVehiculos/ficheros/vehiculos.txt"); 
+		FileWriter TextOut = new FileWriter(TextFile, true);
+		TextOut.write("aa");
+		TextOut.close();
 	}
 }
