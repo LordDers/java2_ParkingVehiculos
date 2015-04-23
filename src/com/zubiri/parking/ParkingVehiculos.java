@@ -292,7 +292,68 @@ public class ParkingVehiculos {
 		} catch (FileNotFoundException e) {
 				e.printStackTrace();
 		} catch (IOException e) {
-		e.printStackTrace();
+			e.printStackTrace();
+		}
+	}
+	
+	public final static void modificarVehiculosFichero(String matricula) throws IOException {		
+		try {
+			String line1 = "";
+			
+			String file = "/home/zubiri/ProyectosJava/java2_ParkingVehiculos/ficheros/vehiculos.txt";
+			File inFile = new File(file);
+			
+			if (!inFile.isFile()) {
+				System.out.println("No existe el fichero");
+				return;
+			}
+			
+			//Construct the new file that will later be renamed to the original filename. 
+			File tempFile = new File(inFile.getAbsolutePath() + ".tmp");
+
+			BufferedReader br = new BufferedReader(new FileReader(file));
+			PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
+			//Read from the original file and write to the new 
+			//unless content matches data to be removed.
+			
+			int cantMatricula = 1;
+			
+			while ((line1 = br.readLine()) != null) {
+				if(line1.indexOf(matricula)!= -1) {
+					// Sólo escribiría la línea de la matrícula encontrada
+					//pw.println(line1);
+					//pw.flush();
+				} else {
+					// Esto escribe en el fichero
+					
+					if (cantMatricula == 1) {
+						Scanner sc2 = new Scanner(System.in);
+						Coche coche = new Coche(sc2);
+						anyadirVehiculosFichero(coche);
+						cantMatricula++;
+					}
+					
+					pw.println(line1);
+					pw.flush();
+				}
+			}
+			pw.close();
+			br.close();
+					   
+			//Delete the original file
+			if (!inFile.delete()) {
+				System.out.println("Could not delete file");
+				return;
+			}
+			
+			//Rename the new file to the filename the original file had.
+			if (!tempFile.renameTo(inFile)) {
+				System.out.println("Could not rename file");
+			}
+		} catch (FileNotFoundException e) {
+				e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 }

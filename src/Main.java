@@ -15,10 +15,12 @@ public class Main {
 			System.out.println("Buscar vehiculo----------------------------------3");
 			System.out.println("Borrar vehiculo----------------------------------4");
 			System.out.println("Modificar vehiculo-------------------------------5");
-			System.out.println("Leer vehiculos-----------------------------------6");
+			// Fichero
+			System.out.println("Leer vehiculos fichero---------------------------6");
 			System.out.println("Añadir vehiculos fichero-------------------------7");
 			System.out.println("Borrar vehiculo fichero--------------------------8");
-			System.out.println("SALIR DEL PROGRAMA-------------------------------9");
+			System.out.println("Modificar vehiculo fichero-----------------------9");
+			System.out.println("SALIR DEL PROGRAMA-------------------------------10");
 			   
 			seleccion = sc.nextInt();
 			switch (seleccion) {
@@ -49,16 +51,20 @@ public class Main {
 					Coche coche = new Coche(sc);
 					ParkingVehiculos.anyadirVehiculosFichero(coche);
 					break;
-				case 8: // Añadir vehículos al fichero
+				case 8: // Borrar vehículos al fichero
 					System.out.print("Matrícula del vehículo a borrar: ");
 					ParkingVehiculos.borrarVehiculosFichero(sc.next());
 					break;
-				case 9: //Salimos
+				case 9: // Modificar vehículos al fichero
+					System.out.print("Matrícula del vehículo a modificar: ");
+					ParkingVehiculos.modificarVehiculosFichero(sc.next());
+					break;
+				case 10: //Salimos
 					System.out.println("Has decidido salir");
 					break;
 				default:
 					System.out.println("No ha insertado la opción correcta");
 			}
-		} while (seleccion != 9);
+		} while (seleccion != 10);
 	}
 }
