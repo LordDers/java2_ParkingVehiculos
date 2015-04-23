@@ -9,8 +9,6 @@ public class Main {
 		int seleccion = -1;
 		Scanner sc = new Scanner(System.in);
 		
-		ParkingVehiculos pv = new ParkingVehiculos();
-		
 		do {
 			System.out.println("Añadir vehiculo----------------------------------1");
 			System.out.println("Mostrar vehiculos--------------------------------2");
@@ -19,7 +17,8 @@ public class Main {
 			System.out.println("Modificar vehiculo-------------------------------5");
 			System.out.println("Leer vehiculos-----------------------------------6");
 			System.out.println("Añadir vehiculos fichero-------------------------7");
-			System.out.println("SALIR DEL PROGRAMA-------------------------------8");
+			System.out.println("Borrar vehiculo fichero--------------------------8");
+			System.out.println("SALIR DEL PROGRAMA-------------------------------9");
 			   
 			seleccion = sc.nextInt();
 			switch (seleccion) {
@@ -28,11 +27,11 @@ public class Main {
 					ParkingVehiculos pv2 = new ParkingVehiculos(sc);
 					break;
 				case 2: // Mostrar vehículos
-					System.out.println(pv.formattedParkingVehiculos());
+					System.out.println(ParkingVehiculos.formattedParkingVehiculos());
 					break;
 				case 3: // Buscar vehículo
 					System.out.print("Matricula a buscar: ");
-					ParkingVehiculos.buscarVehiculoVoid(sc.next());
+					ParkingVehiculos.buscarVehiculo(sc.next());
 					break;
 				case 4: // Borrar vehículo
 					System.out.print("Introduce la matricula del coche a borrar: ");
@@ -43,19 +42,23 @@ public class Main {
 					ParkingVehiculos.modificarVehiculo(sc.next());
 					break;
 				case 6: // Leer vehículos
-					pv.leerVehiculos();
+					ParkingVehiculos.leerVehiculos();
 					ParkingVehiculos.mostrarParkingVehiculos();
 					break;
 				case 7: // Añadir vehículos al fichero
 					Coche coche = new Coche(sc);
-					pv.anyadirVehiculosFichero(coche);
+					ParkingVehiculos.anyadirVehiculosFichero(coche);
 					break;
-				case 8: //Salimos
+				case 8: // Añadir vehículos al fichero
+					System.out.print("Matrícula del vehículo a borrar: ");
+					ParkingVehiculos.borrarVehiculosFichero(sc.next());
+					break;
+				case 9: //Salimos
 					System.out.println("Has decidido salir");
 					break;
 				default:
 					System.out.println("No ha insertado la opción correcta");
 			}
-		} while (seleccion != 8);
+		} while (seleccion != 9);
 	}
 }
