@@ -145,7 +145,7 @@ public class ParkingVehiculos {
 		}
 	}
 	
-	public String formattedParkingVehiculos() {
+	public static String formattedParkingVehiculos() {
 		String parkingStr = "";
 		
 		for (int i = 0; i < vehiculos.size(); i++) {
@@ -155,7 +155,7 @@ public class ParkingVehiculos {
 		return parkingStr;
 	}
 	
-	public final void leerVehiculos() {
+	public static final void leerVehiculos() {
 		// Leer "vehiculos.txt"
 		try {
 			BufferedReader br2 = new BufferedReader(new FileReader("ficheros/vehiculos.txt"));
@@ -187,7 +187,7 @@ public class ParkingVehiculos {
 		}
 	}
 	
-	public final void anyadirVehiculosFichero(Coche vehiculo) throws IOException {		
+	public final static void anyadirVehiculosFichero(Coche vehiculo) throws IOException {		
 		File TextFile = new File("ficheros/vehiculos.txt"); 
 		FileWriter TextOut = new FileWriter(TextFile, true);
 		
