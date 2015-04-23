@@ -198,7 +198,7 @@ public class ParkingVehiculos {
 	}
 	
 	public final void anyadirVehiculosFichero(Coche vehiculo) throws IOException {		
-		File TextFile = new File("/home/zubiri/ProyectosJava/java2_ParkingVehiculos/ficheros/vehiculos.txt"); 
+		File TextFile = new File("ficheros/vehiculos.txt"); 
 		FileWriter TextOut = new FileWriter(TextFile, true);
 		
 		TextOut.write(vehiculo.getNumRuedas() + ", ");

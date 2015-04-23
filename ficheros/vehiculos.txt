@@ -1,4 +1,8 @@
 4, true, Reanult, 0000AAA, true, 50
+<<<<<<< HEAD
 4, true, Ferrari, 1111AAA, true, 55
 4, false, Fiat, 2222AAA, true, 60
 4, true, Porche, 3333AAA, false, 65
+=======
+4, true, ferrari, 2222, true, 55
+>>>>>>> 950fac0acfcb3f03abcfe0cdb1bcbd0cc6a0fb51
