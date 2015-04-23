@@ -156,36 +156,26 @@ public class ParkingVehiculos {
 	}
 	
 	public final void leerVehiculos() {
-		
-		// Leer "clientes.txt"
+		// Leer "vehiculos.txt"
 		try {
-
-			/*File archivo = new File("/home/zubiri/ProyectosJava/java2_ParkingVehiculos/ficheros/vehiculos.txt");
-			BufferedReader br2 = new BufferedReader(new FileReader(archivo));*/
 			BufferedReader br2 = new BufferedReader(new FileReader("ficheros/vehiculos.txt"));
 
 			String linea2 = br2.readLine();
-
-			// Creamos un array de tipo String para separar los campos del fichero
 			String [] camposSeparados2 = null;
 
 			while (linea2 != null) {
 
-				// Creamos los objetos que participan en el fichero "clientes.txt"
 				Coche coche = new Coche();
 
-				// Separamos las lineas obtenidas (linea2) mediante ", " y lo guardamos en "camposSeparados2"
 				camposSeparados2 = linea2.split(", ");
 
-				// Introducimos los valores capturados del fichero en los objetos creados
 				coche.setNumRuedas(Integer.parseInt(camposSeparados2[0]));
 				coche.setMotor(Boolean.parseBoolean(camposSeparados2[1]));
 				coche.setMarca(camposSeparados2[2]);
 				coche.setMatricula(camposSeparados2[3]);
 				coche.setAutomatico(Boolean.parseBoolean(camposSeparados2[4]));
 				coche.setConsumo100km(Integer.parseInt(camposSeparados2[5]));
-
-				// Añadimos el objeto "cliente" al ArrayList "arrayCliente"
+				
 				vehiculos.add(coche);
 
 				linea2 = br2.readLine();
