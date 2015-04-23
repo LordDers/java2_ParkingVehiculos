@@ -194,7 +194,7 @@ public class ParkingVehiculos {
 	public static final ArrayList<Vehiculo> leerVehiculos2() {
 		// Leer "vehiculos.txt"
 		try {
-			BufferedReader br2 = new BufferedReader(new FileReader("/home/zubiri/ProyectosJava/GestionesParking/WebContent/ficheros/vehiculos.txt"));
+			BufferedReader br2 = new BufferedReader(new FileReader("ficheros/vehiculos.txt"));
 
 			String linea2 = br2.readLine();
 			String [] camposSeparados2 = null;
