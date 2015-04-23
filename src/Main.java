@@ -20,7 +20,8 @@ public class Main {
 			System.out.println("Añadir vehiculos fichero-------------------------7");
 			System.out.println("Borrar vehiculo fichero--------------------------8");
 			System.out.println("Modificar vehiculo fichero-----------------------9");
-			System.out.println("SALIR DEL PROGRAMA-------------------------------10");
+			System.out.println("Buscar vehiculo fichero--------------------------10");
+			System.out.println("SALIR DEL PROGRAMA-------------------------------11");
 			   
 			seleccion = sc.nextInt();
 			switch (seleccion) {
@@ -59,7 +60,13 @@ public class Main {
 					System.out.print("Matrícula del vehículo a modificar: ");
 					ParkingVehiculos.modificarVehiculosFichero(sc.next());
 					break;
-				case 10: //Salimos
+				case 10: // Buscar vehículo fichero
+					System.out.print("Matricula a buscar: ");
+					ParkingVehiculos.leerVehiculos();
+					// También busca del arrayList
+					ParkingVehiculos.buscarVehiculoVoid(sc.next());
+					break;
+				case 11: //Salimos
 					System.out.println("Has decidido salir");
 					break;
 				default:
