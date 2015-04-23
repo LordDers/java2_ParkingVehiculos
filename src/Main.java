@@ -32,7 +32,7 @@ public class Main {
 					break;
 				case 3: // Buscar vehículo
 					System.out.print("Matricula a buscar: ");
-					ParkingVehiculos.buscarVehiculo(sc.next());
+					ParkingVehiculos.buscarVehiculoVoid(sc.next());
 					break;
 				case 4: // Borrar vehículo
 					System.out.print("Introduce la matricula del coche a borrar: ");
@@ -51,10 +51,11 @@ public class Main {
 					pv.anyadirVehiculosFichero(coche);
 					break;
 				case 8: //Salimos
+					System.out.println("Has decidido salir");
 					break;
 				default:
 					System.out.println("No ha insertado la opción correcta");
 			}
-		} while (seleccion != 0);
+		} while (seleccion != 8);
 	}
 }

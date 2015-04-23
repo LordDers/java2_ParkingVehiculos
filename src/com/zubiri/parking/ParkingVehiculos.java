@@ -84,7 +84,7 @@ public class ParkingVehiculos {
 	}
 	
 	// Buscar
-	public static void buscarVehiculo(String matricula) {
+	public static void buscarVehiculoVoid(String matricula) {
 		int i;
 		
 		for(i =0; i<vehiculos.size(); i++) {
@@ -96,6 +96,21 @@ public class ParkingVehiculos {
 		if (i == vehiculos.size()) {
 			System.out.println("No se ha encontrado la matricula");
 		}
+	}
+	
+	public static Vehiculo buscarVehiculo(String matricula) {
+		int i;
+		int posicion=-1;
+		for(i =0; i<vehiculos.size(); i++) {
+			if (vehiculos.get(i).getMatricula().equalsIgnoreCase(matricula)) {
+				posicion=i;
+				break;
+			}
+		}
+		if (i == vehiculos.size()) {
+			System.out.println("No se ha encontrado la matricula");
+		}
+		return vehiculos.get(posicion);
 	}
 	
 	// Modificar
