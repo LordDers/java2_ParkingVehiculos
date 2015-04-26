@@ -250,7 +250,7 @@ public class ParkingVehiculos {
 		try {
 			String line1 = "";
 			
-			String file = "/home/zubiri/ProyectosJava/java2_ParkingVehiculos/ficheros/vehiculos.txt";
+			String file = "ficheros/vehiculos.txt";
 			File inFile = new File(file);
 			
 			if (!inFile.isFile()) {
@@ -300,7 +300,7 @@ public class ParkingVehiculos {
 		try {
 			String line1 = "";
 			
-			String file = "/home/zubiri/ProyectosJava/java2_ParkingVehiculos/ficheros/vehiculos.txt";
+			String file = "ficheros/vehiculos.txt";
 			File inFile = new File(file);
 			
 			if (!inFile.isFile()) {
@@ -329,6 +329,66 @@ public class ParkingVehiculos {
 					if (cantMatricula == 1) {
 						Scanner sc2 = new Scanner(System.in);
 						Coche coche = new Coche(sc2);
+						anyadirVehiculosFichero(coche);
+						cantMatricula++;
+					}
+					
+					pw.println(line1);
+					pw.flush();
+				}
+			}
+			pw.close();
+			br.close();
+					   
+			//Delete the original file
+			if (!inFile.delete()) {
+				System.out.println("Could not delete file");
+				return;
+			}
+			
+			//Rename the new file to the filename the original file had.
+			if (!tempFile.renameTo(inFile)) {
+				System.out.println("Could not rename file");
+			}
+		} catch (FileNotFoundException e) {
+				e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public final static void modificarVehiculosFicheroServlet(String matriculavieja, String matriculanueva, String marca, int num_ruedas, boolean motor, boolean automatico, int consumo) throws IOException {		
+		try {
+			String line1 = "";
+			
+			String file = "ficheros/vehiculos.txt";
+			File inFile = new File(file);
+			
+			if (!inFile.isFile()) {
+				System.out.println("No existe el fichero");
+				return;
+			}
+			
+			//Construct the new file that will later be renamed to the original filename. 
+			File tempFile = new File(inFile.getAbsolutePath() + ".tmp");
+
+			BufferedReader br = new BufferedReader(new FileReader(file));
+			PrintWriter pw = new PrintWriter(new FileWriter(tempFile));
+			//Read from the original file and write to the new 
+			//unless content matches data to be removed.
+			
+			int cantMatricula = 1;
+			
+			while ((line1 = br.readLine()) != null) {
+				if(line1.indexOf(matriculavieja)!= -1) {
+					// Sólo escribiría la línea de la matrícula encontrada
+					//pw.println(line1);
+					//pw.flush();
+				} else {
+					// Esto escribe en el fichero
+					
+					if (cantMatricula == 1) {
+						Coche coche = new Coche(num_ruedas,motor,marca,matriculanueva,automatico,consumo);
 						anyadirVehiculosFichero(coche);
 						cantMatricula++;
 					}
